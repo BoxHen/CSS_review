@@ -1,0 +1,205 @@
+/*
+*{
+  this is a reset and can be used to zero everything
+  margin: 0;
+  padding: 0;
+}*/
+body{
+  background-color: #f4f4f4;
+  color: #555555;
+  font-family: arial, Helvetica, sans-serif; /* loads arial and then helvetica if arial does not load and then sans*/
+  font-size: 16px;
+  font-weight: normal;
+  /*Font: normal 16px Arial, Helvetica, sans-serif; -> this is same as above*/
+  line-height: 1.6em; /*em is just a unit */
+  margin: 0;
+}
+.container{
+  width: 80%; /* we can set this to a set px but this is not resposive so we will use percentage instead*/
+  margin: auto; /*margins are left and right - this centers it*/
+}
+.clr{
+  clear:both; /*after we float, the next markup will be messed up so we will want to clear it
+  ->clear any floats*/
+}
+a{ /*global link- changes all links on page*/
+  text-decoration: none;
+  color: #000;
+}
+a:hover{ /*state in link*/
+  color: red;
+
+}
+a:active{
+  color: green;
+}
+a:visited{
+  color: purple;
+}
+.box-1{/* use . to target a class */
+  background-color: #333333;
+  color: #ffffff;
+
+  border-top: 5px red solid;
+  border-left: 5px red solid;
+  border-top: 5px red solid;
+  border-bottom: 5px red solid; /*same as border: 5px red solid;*/
+
+  border-width: 3px;
+  border-bottom-width: 10px;
+  border-top-style: dotted;
+
+  padding: 20px;
+  margin: 20px;
+}
+.box-1 h1{
+  font-family: Tahoma;
+  font-weight: 800;
+  font-style: italic;
+  text-decoration: underline;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  word-spacing: 1em;
+}
+.box-2{
+  border: 3px dotted #ccc;
+  padding: 20px;
+  margin: 20px 0;
+}
+.categories{
+  border: 1px #ccc solid;
+  padding: 10px;
+  border-radius: 15px;
+}
+.categories h2{
+  text-align: center;
+}
+.categories ul{
+  padding: 0;
+  list-style: square; /*changes bullet pts to square*/
+  list-style: none; /*no bullet pts*/
+}
+.categories li{
+  padding-bottom: 6px;
+  border-bottom: dotted 1px  #333;
+  list-style-image: url('') /*will add a image instead of the bullet pts but we dont have a image atm
+  we will ned to resize image too*/
+}
+.my-form{
+  padding: 20px;
+}
+.my-form .form-group{
+  padding-bottom: 15px;
+}
+.my-form label{
+  display: block; /*set as block so it is on new line*/
+}
+.my-form input[type="text"], .my-form textarea{ /*target input type, text and the textarea(message box)*/
+  padding: 8px;
+  width: 100%;
+}
+.button/*.my-form input[type="submit"]*/{ /*we can also apply a hover effect with ".button:hover" if wanted*/
+  background-color: #333; /*black bubble color*/
+  color: #fff; /*white text*/
+  padding: 10px, 15px;
+  border: none;
+}
+.block{
+  float: left;
+  width: 33.3%;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-sizing: border-box; /*without this, the boxes will not be all on the same horizontal since 33.3% barely fits
+  all of it.  box-sizing will take into consideration the border, padding (margin not included)
+  */
+}
+#main-block{
+  float: left;
+  width: 70%;
+}
+#sidebar{
+  float: right;
+  width: 30%;
+  background-color: #333;
+  color: #fff;
+  padding: 15px;
+  box-sizing: border-box;
+}
+.p-box{
+  width: 800px;
+  height: 500px;
+  border: 1px solid #000;
+  margin-top: 30px;
+  background-image: url('../images/background_test.jpg');
+  /*we can do things like this too:
+  background-repeat: no-repeat;     ===does not tile the image
+  background-position: 100px, 200px;
+  background-position: center top;  ===centers the image of background
+  */
+}
+.p-box h1{
+  position: relative; /*An element with position: relative; is positioned relative to its normal position.*/
+  top: 200px;
+}
+.fixed-button{ /* remains at constant position on page */
+  position: fixed;
+  top: 400px;
+  padding: 5px 5px;
+}
+.my-list li:first-child{ /*psuedo elements to taret list items*/
+  background: red;
+}
+.my-list li:last-child{
+  background: blue;
+}
+.my-list li:nth-child(5){/*specfies a number to change and we can set even or odd on the parethesis as well*/
+  background: yellow;
+}
+.my-list li:nth-child(even){
+  background: green;
+}
+/* =============================SUMMARY===================================
+Margin shorthand:
+  p{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  +++is the same as+++
+  p{
+    margin: 5px 10px 5px 10px; (order:top right bottom left) CW direction
+  }
+  OR
+  p{
+    margin: 5px 10px; (IF top/bottom and right/left are the same)
+  }
+
+Postions:
+  position: static;
+    HTML elements are positioned static by default.
+    Static positioned elements are not affected by the top, bottom, left, and right properties.
+    An element with position: static; is not positioned in any special way; it is always
+    positioned according to the normal flow of the page:
+  position: relative;
+    An element with position: relative; is positioned relative to its normal position.
+    Setting the top, right, bottom, and left properties of a relatively-positioned
+    element will cause it to be adjusted away from its normal position. Other content
+    will not be adjusted to fit into any gap left by the element.
+  position: fixed;
+    An element with position: fixed; is positioned relative to the viewport, which
+    means it always stays in the same place even if the page is scrolled. The top,
+    right, bottom, and left properties are used to position the element.
+    A fixed element does not leave a gap in the page where it would normally have been
+    located.
+  position: absolute;
+    An element with position: absolute; is positioned relative to the nearest
+    positioned ancestor (instead of positioned relative to the viewport, like fixed).
+    However; if an absolute positioned element has no positioned ancestors, it uses
+    the document body, and moves along with page scrolling.
+  position: sticky;
+    An element with position: sticky; is positioned based on the user's scroll position.
+    A sticky element toggles between relative and fixed, depending on the scroll
+    position. It is positioned relative until a given offset position is met in the
+    viewport - then it "sticks" in place (like position:fixed).
+*/
